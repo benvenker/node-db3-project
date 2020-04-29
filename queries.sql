@@ -21,3 +21,18 @@ where o.OrderId = 10251;
 select o.Id, o.ShipName, e.LastName
 from "Order" as o
   join Employee as e on e.Id = o.EmployeeId;
+
+
+-- Stretch Queries from W3Schools
+
+-- Displays CategoryName and a new column called Count that shows how many products are in each category. Shows 8 records.
+SELECT distinct(c.categoryName), count(*) as Count
+from categories as c
+  join products as p on p.categoryid = c.categoryid
+group by categoryname
+
+-- Display OrderID and a column called ItemCount that shows the total number of products placed on the order. Shows 196 records.
+SELECT o.orderid, count(*) as ItemCount
+from orderdetails as o
+group by orderId
+order by productCount desc
